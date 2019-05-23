@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Setono\DAO\Client\ClientInterface" alias="setono_dao.client"/>
+        <service id="setono_dao.client" class="Setono\DAO\Client\Client">
+            <argument type="service" id="setono_dao.http_client"/>
+            <argument type="service" id="setono_dao.request_factory"/>
+            <argument type="service" id="setono_dao.stream_factory"/>
+            <argument>%setono_dao.customer_id%</argument>
+            <argument>%setono_dao.password%</argument>
+            <argument>%setono_dao.base_url%</argument>
+        </service>
+    </services>
+</container>
