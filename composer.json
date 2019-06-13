@@ -10,7 +10,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "setono/dao-php-sdk": "^1.0",
+        "setono/dao-php-sdk": "^2.0",
         "symfony/config": "^4.0",
         "symfony/dependency-injection": "^4.0",
         "symfony/framework-bundle": "^4.0"
@@ -21,7 +21,8 @@
         "matthiasnoback/symfony-config-test": "^4.0",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "nyholm/psr7": "^1.1",
-        "phpstan/phpstan": "^0.10.3",
+        "phpstan/phpstan": "^0.11.0",
+        "phpstan/phpstan-strict-rules": "^0.11.1",
         "phpunit/phpunit": "^8.0",
         "roave/security-advisories": "dev-master",
         "symplify/easy-coding-standard": "^5.1"

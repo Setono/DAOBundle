@@ -33,7 +33,6 @@ final class SetonoDAOExtensionTest extends AbstractExtensionTestCase
             'base_url' => 'base_url',
             'http_client' => 'http_client_service_id',
             'request_factory' => 'request_factory_service_id',
-            'stream_factory' => 'stream_factory_service_id',
         ]);
 
         $this->assertContainerBuilderHasParameter('setono_dao.customer_id', 'customer id');
@@ -41,7 +40,6 @@ final class SetonoDAOExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('setono_dao.base_url', 'base_url');
         $this->assertContainerBuilderHasParameter('setono_dao.http_client', 'http_client_service_id');
         $this->assertContainerBuilderHasParameter('setono_dao.request_factory', 'request_factory_service_id');
-        $this->assertContainerBuilderHasParameter('setono_dao.stream_factory', 'stream_factory_service_id');
     }
 
     /**

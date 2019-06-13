@@ -6,7 +6,6 @@ namespace Setono\DAOBundle\DependencyInjection\Compiler;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
@@ -23,7 +22,6 @@ final class RegisterFactoriesPass implements CompilerPassInterface
         }
 
         $this->registerFactory($container, 'setono_dao.request_factory', 'setono_dao.request_factory', RequestFactoryInterface::class);
-        $this->registerFactory($container, 'setono_dao.stream_factory', 'setono_dao.stream_factory', StreamFactoryInterface::class);
     }
 
     private function registerFactory(ContainerBuilder $container, string $parameter, string $service, string $factoryInterface): void

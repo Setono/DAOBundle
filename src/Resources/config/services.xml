@@ -6,7 +6,6 @@
         <service id="setono_dao.client" class="Setono\DAO\Client\Client">
             <argument type="service" id="setono_dao.http_client"/>
             <argument type="service" id="setono_dao.request_factory"/>
-            <argument type="service" id="setono_dao.stream_factory"/>
             <argument>%setono_dao.customer_id%</argument>
             <argument>%setono_dao.password%</argument>
             <argument>%setono_dao.base_url%</argument>
