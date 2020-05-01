@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "kriswallsmith/buzz": "^1.0",
-        "localheinz/composer-normalize": "^1.1",
+        "localheinz/composer-normalize": "^2.5",
         "matthiasnoback/symfony-config-test": "^4.0",
         "matthiasnoback/symfony-dependency-injection-test": "^4.0",
         "nyholm/psr7": "^1.1",
