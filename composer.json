@@ -23,7 +23,7 @@
         "nyholm/psr7": "^1.1",
         "phpstan/phpstan": "^0.11.0",
         "phpstan/phpstan-strict-rules": "^0.11.1",
-        "phpunit/phpunit": "^8.0",
+        "phpunit/phpunit": "^9.4",
         "roave/security-advisories": "dev-master",
         "symplify/easy-coding-standard": "^5.1"
     },
