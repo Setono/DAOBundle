@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\DAOBundle\DependencyInjection\Compiler;
 
-use Buzz\Client\BuzzClientInterface;
+use Exception;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException;
@@ -22,8 +22,12 @@ final class RegisterHttpClientPass implements CompilerPassInterface
             }
 
             $container->setAlias(self::HTTP_CLIENT_SERVICE_ID, $container->getParameter(self::HTTP_CLIENT_PARAMETER));
-        } elseif ($container->has(BuzzClientInterface::class)) {
-            $container->setAlias(self::HTTP_CLIENT_SERVICE_ID, BuzzClientInterface::class);
+        } else {
+            if (!$container->has('Buzz\Client\BuzzClientInterface')) {
+                throw new Exception('You should specify setono_dao.http_client configuration parameter or define Buzz\Client\BuzzClientInterface service to be used by default');
+            }
+
+            $container->setAlias(self::HTTP_CLIENT_SERVICE_ID, 'Buzz\Client\BuzzClientInterface');
         }
     }
 }

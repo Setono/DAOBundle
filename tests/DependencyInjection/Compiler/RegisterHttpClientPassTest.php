@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Setono\DAOBundle\DependencyInjection\Compiler;
 
-use Buzz\Client\BuzzClientInterface;
-use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractCompilerPassTestCase;
 use Setono\DAOBundle\DependencyInjection\Compiler\RegisterHttpClientPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -35,10 +33,10 @@ final class RegisterHttpClientPassTest extends AbstractCompilerPassTestCase
      */
     public function if_buzz_http_client_service_exists_the_service_alias_exists(): void
     {
-        $this->setDefinition(BuzzClientInterface::class, new Definition());
+        $this->setDefinition('Buzz\Client\BuzzClientInterface', new Definition());
 
         $this->compile();
 
-        $this->assertContainerBuilderHasAlias('setono_dao.http_client', BuzzClientInterface::class);
+        $this->assertContainerBuilderHasAlias('setono_dao.http_client', 'Buzz\Client\BuzzClientInterface');
     }
 }

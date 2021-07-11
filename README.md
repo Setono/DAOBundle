@@ -36,6 +36,32 @@ $bundles = [
 ];
 ```
 
+### Step 3: Configure bundle
+
+```bash
+composer require kriswallsmith/buzz nyholm/psr7
+```
+
+```yaml
+services:
+    _defaults:
+        public: false
+
+    Psr\Http\Message\RequestFactoryInterface: '@nyholm.psr7.psr17_factory'
+    Psr\Http\Message\ResponseFactoryInterface: '@nyholm.psr7.psr17_factory'
+    nyholm.psr7.psr17_factory:
+        class: Nyholm\Psr7\Factory\Psr17Factory
+
+    Buzz\Client\BuzzClientInterface: '@buzz.client.file_get_contents'
+    buzz.client.file_get_contents:
+        class: Buzz\Client\FileGetContents
+        arguments:
+            - '@Psr\Http\Message\ResponseFactoryInterface'
+            -
+                timeout: 10
+                allow_redirects: false
+```
+
 ## Usage
 Now you can inject the `ClientInterface` into your service:
 
