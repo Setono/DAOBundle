@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Setono\DAOBundle\DependencyInjection\Compiler;
 
+use Exception;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\RequestFactoryInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -38,6 +39,15 @@ final class RegisterFactoriesPass implements CompilerPassInterface
             $container->setAlias($service, 'nyholm.psr7.psr17_factory');
         } elseif (class_exists(Psr17Factory::class)) {
             $container->setAlias($service, self::PSR17_FACTORY_SERVICE_ID);
+        } else {
+            throw new Exception(sprintf(
+                'You should specify %s configuration parameter or define one of next services to be used by default: %s',
+                $parameter,
+                implode(', ', [
+                    'nyholm.psr7.psr17_factory',
+                    Psr17Factory::class,
+                ])
+            ));
         }
     }
 }
